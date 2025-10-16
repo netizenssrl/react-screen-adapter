@@ -10,7 +10,7 @@ A React component that scales a fixed-dimension layout (e.g. 4K resolution) resp
 
 ## Installation
 ```sh
-npm install @netizens/react-screen-adapter
+npm install @netizenssrl/react-screen-adapter
 ```
 
 ## Usage
