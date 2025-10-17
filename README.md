@@ -17,7 +17,7 @@ npm install @netizenssrl/react-screen-adapter
 Wrap your fixed-dimension content with the `ReactScreenAdapter` component to enable dynamic scaling:
 
 ```javascript
-import { ReactScreenAdapter } from “@netizens/react-screen-adapter”;
+import { ReactScreenAdapter } from “@netizenssrl/react-screen-adapter”;
 
 function App() {
     /* Your fixed-resolution layout here */
