@@ -21,7 +21,7 @@ import { ReactScreenAdapter } from “@netizenssrl/react-screen-adapter”;
 
 export default function App() {
     <ReactScreenAdapter width={3840} height={2160}>
-        <App />
+        { /* Your app content goes here */ }
     </ReactScreenAdapter>
 }
 ```
