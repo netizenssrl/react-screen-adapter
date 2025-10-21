@@ -1,4 +1,4 @@
-# @netizens/react-screen-adapter
+# @netizenssrl/react-screen-adapter
 A React component that scales a fixed-dimension layout (e.g. 4K resolution) responsively and proportionally based on the viewport size.
 
 ## Features
@@ -19,12 +19,11 @@ Wrap your fixed-dimension content with the `ReactScreenAdapter` component to ena
 ```javascript
 import { ReactScreenAdapter } from “@netizenssrl/react-screen-adapter”;
 
-function App() {
-    /* Your fixed-resolution layout here */
+export default function App() {
+    <ReactScreenAdapter width={3840} height={2160}>
+        <App />
+    </ReactScreenAdapter>
 }
-<ReactScreenAdapter width={3840} height={2160}>
-    <App />
-</ReactScreenAdapter>
 ```
 
 ## License
