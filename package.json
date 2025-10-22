@@ -1,6 +1,6 @@
 {
     "name": "@netizenssrl/react-screen-adapter",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "A React component for adapting screen sizes",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",

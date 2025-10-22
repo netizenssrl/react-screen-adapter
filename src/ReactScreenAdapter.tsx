@@ -33,8 +33,9 @@ const ReactScreenAdapter: FC<Props> = ({ children, width, height }) => {
         return null;
     }
     const outerStyle : React.CSSProperties = {
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        position: "fixed",
+        height: "100svh",
         overflow: "hidden",
     };
     const innerStyle : React.CSSProperties = {
