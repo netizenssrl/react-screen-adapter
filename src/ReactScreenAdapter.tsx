@@ -35,14 +35,33 @@ const ReactScreenAdapter: FC<Props> = ({ children, className, width, height, hor
     if (!isMounted) {
         return null;
     }
+
+    const justifyContentMap: Record<string, React.CSSProperties["justifyContent"]> = {
+        left: "flex-start",
+        center: "center",
+        right: "flex-end",
+    };
+    const alignItemsMap: Record<string, React.CSSProperties["alignItems"]> = {
+        top: "flex-start",
+        center: "center",
+        bottom: "flex-end",
+    };
+
+    const wrapperStyle: React.CSSProperties = {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: justifyContentMap[hortizontalAlign ?? "center"],
+        alignItems: alignItemsMap[verticalAlign ?? "center"],
+    };
     const outerStyle : React.CSSProperties = {
         width: width * scale,
         position: "relative",
         height: height * scale,
         overflow: "hidden",
-        display: "flex",
-        justifyContent: hortizontalAlign === "left" ? "flex-start" : hortizontalAlign === "center" ? "center" : "flex-end",
-        alignItems: verticalAlign === "top" ? "flex-start" : verticalAlign === "center" ? "center" : "flex-end",
     };
     const innerStyle : React.CSSProperties = {
         width: width,
@@ -56,9 +75,11 @@ const ReactScreenAdapter: FC<Props> = ({ children, className, width, height, hor
         marginLeft: -(width * scale) / 2
     };
     return (
-        <div style={outerStyle} className={className}>
-            <div style={innerStyle}>
-                {children}
+        <div style={wrapperStyle}>
+            <div style={outerStyle} className={className}>
+                <div style={innerStyle}>
+                    {children}
+                </div>
             </div>
         </div>
     );
