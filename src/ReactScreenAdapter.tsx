@@ -7,11 +7,11 @@ type Props = {
     className?: string;
     width: number;
     height: number;
-    hortizontalAlign?: "left" | "center" | "right";
+    horizontalAlign?: "left" | "center" | "right";
     verticalAlign?: "top" | "center" | "bottom";
 };
 
-const ReactScreenAdapter: FC<Props> = ({ children, className, width, height, hortizontalAlign = "center", verticalAlign = "center" }) => {
+const ReactScreenAdapter: FC<Props> = ({ children, className, width, height, horizontalAlign = "center", verticalAlign = "center" }) => {
     const [isMounted, setIsMounted] = useState(false);
     const [scale, setScale] = useState(1);
 
@@ -54,7 +54,7 @@ const ReactScreenAdapter: FC<Props> = ({ children, className, width, height, hor
         width: "100%",
         height: "100%",
         display: "flex",
-        justifyContent: justifyContentMap[hortizontalAlign ?? "center"],
+        justifyContent: justifyContentMap[horizontalAlign ?? "center"],
         alignItems: alignItemsMap[verticalAlign ?? "center"],
     };
     const outerStyle : React.CSSProperties = {
