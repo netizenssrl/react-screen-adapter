@@ -4,11 +4,14 @@ import React, { FC, useEffect, useState, ReactNode } from "react";
 
 type Props = {
     children?: ReactNode;
+    className?: string;
     width: number;
     height: number;
+    hortizontalAlign?: "left" | "center" | "right";
+    verticalAlign?: "top" | "center" | "bottom";
 };
 
-const ReactScreenAdapter: FC<Props> = ({ children, width, height }) => {
+const ReactScreenAdapter: FC<Props> = ({ children, className, width, height, hortizontalAlign = "center", verticalAlign = "center" }) => {
     const [isMounted, setIsMounted] = useState(false);
     const [scale, setScale] = useState(1);
 
@@ -37,6 +40,9 @@ const ReactScreenAdapter: FC<Props> = ({ children, width, height }) => {
         position: "relative",
         height: height * scale,
         overflow: "hidden",
+        display: "flex",
+        justifyContent: hortizontalAlign === "left" ? "flex-start" : hortizontalAlign === "center" ? "center" : "flex-end",
+        alignItems: verticalAlign === "top" ? "flex-start" : verticalAlign === "center" ? "center" : "flex-end",
     };
     const innerStyle : React.CSSProperties = {
         width: width,
@@ -47,10 +53,10 @@ const ReactScreenAdapter: FC<Props> = ({ children, width, height }) => {
         left: "50%",
         position: "absolute",
         marginTop: -(height * scale) / 2,
-        marginLeft: -(width * scale) / 2,
+        marginLeft: -(width * scale) / 2
     };
     return (
-        <div style={outerStyle}>
+        <div style={outerStyle} className={className}>
             <div style={innerStyle}>
                 {children}
             </div>
